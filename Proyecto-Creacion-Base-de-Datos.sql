@@ -1,6 +1,6 @@
 use proyecto;
     CREATE TABLE usuario(
-        cveUsuario  int IDENTITY (1, 1) NOT NULL,
+        cveUsuario  int auto_increment,
         nombre VARCHAR (60),
         apellidos VARCHAR (100),
         edad int,
