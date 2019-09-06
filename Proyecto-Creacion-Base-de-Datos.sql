@@ -14,9 +14,9 @@ use proyecto;
         correo VARCHAR (50) not null,
         tipo VARCHAR (60),
         contrseña VARCHAR (30),
-        cveUsuario int
-        CONSTRAINT sesionFk FOREIGN KEY (cveUsuario) REFERENCES usuario (cveUsuario),
-        CONSTRAINT sesionPk PRIMARY KEY (correo)
+        cveUsuario int,
+        FOREIGN KEY (cveUsuario) REFERENCES usuario (cveUsuario),
+        PRIMARY KEY (correo)
     );
 
     CREATE TABLE tallas (
@@ -30,7 +30,7 @@ use proyecto;
         cveOfertas VARCHAR (10) NOT NULL,
         descuento int,
         descripcion VARCHAR (60),
-        CONSTRAINT ofertasPk PRIMARY KEY (cveOfertas)
+        PRIMARY KEY (cveOfertas)
     );
     CREATE TABLE sombrero(
         cveSombrero VARCHAR (15) NOT NULL,
@@ -192,7 +192,6 @@ use proyecto;
     CREATE TABLE comprara(
         cveCompra VARCHAR (10) not null,
         cveProducto VARCHAR (10),
-        --creacion de llaves foraneas
         CONSTRAINT compraraFk1 FOREIGN KEY (cveCompra) REFERENCES compra (cveCompra),
         CONSTRAINT compraraFk2 FOREIGN KEY (cveProducto) REFERENCES producto (cveProducto)
     );
