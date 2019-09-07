@@ -5,7 +5,7 @@ values ('SOM_1','Tela','Formal','Azul','Sombrero Negro de Tela'),
 		('SOM_2','Gamusa','De Campo','Negro','Sombrero Tejano de Gamusa');
 
 
-insert into seloj (cveReloj, Material, Tipo, Color, Nombre)
+insert into reloj (cveReloj, Material, Tipo, Color, Nombre)
 values ('REL_1','Cuero','Analogico','Negro','Reloj Analogico Negro Casual'),
 		('REL_2','Caucho','Digital','Negro','Reloj Digital Negro Deportivo');
 
