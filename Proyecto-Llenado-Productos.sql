@@ -10,7 +10,7 @@ values ('REL_1','Cuero','Analogico','Negro','Reloj Analogico Negro Casual'),
 		('REL_2','Caucho','Digital','Negro','Reloj Digital Negro Deportivo');
 
 insert into zapatos (cveZapato, Material, Ocasion,  Color,Nombre)
-values ('ZAP_1', 'Piel', 'Casual', 'Cafe', 'Zapatos Casuales C�fez duro'),
+values ('ZAP_1', 'Piel', 'Casual', 'Cafe', 'Zapatos Casuales Cafez duro'),
 		('ZAP_2', 'Piel', 'Formal', 'Blanco', 'Zapatos Blancos de Tacon');
 
 insert into lentes (cveLentes,Tipo, Color, Nombre)
