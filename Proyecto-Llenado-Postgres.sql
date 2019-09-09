@@ -1,4 +1,4 @@
-use proyecto;
+
 
 insert into sombrero (cveSombrero, Material, Estilo, Color, Nombre)
 values ('SOM_1','Tela','Formal','Azul','Sombrero Negro de Tela'),
