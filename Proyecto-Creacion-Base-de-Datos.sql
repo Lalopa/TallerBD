@@ -1,4 +1,3 @@
-use proyecto;
     CREATE TABLE usuario(
         cveUsuario serial primary key,
         nombre VARCHAR (60) not null,
