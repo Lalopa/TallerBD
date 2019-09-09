@@ -1,18 +1,21 @@
+
+use proyecto;
     CREATE TABLE usuario(
-        cveUsuario serial primary key,
-        nombre VARCHAR (60) not null,
+        cveUsuario  int auto_increment,
+        nombre VARCHAR (60),
         apellidos VARCHAR (100),
-        edad integer not null,
-        fechaNac VARCHAR (10) not null,
+        edad int,
+        fechaNac VARCHAR (10),
         CONSTRAINT usuarioCk1 CHECK (nombre !='number'),
-        CONSTRAINT usuarioCk2 CHECK (apellidos !='number')
+        CONSTRAINT usuarioCk2 CHECK (apellidos !='number'),
+        CONSTRAINT usuarioPk PRIMARY KEY (cveUsuario)
     );
 
     CREATE TABLE sesion (
         correo VARCHAR (50) not null,
         tipo VARCHAR (60),
-        contrasena VARCHAR (30),
-        cveUsuario integer,
+        contrseña VARCHAR (30),
+        cveUsuario int,
         FOREIGN KEY (cveUsuario) REFERENCES usuario (cveUsuario),
         PRIMARY KEY (correo)
     );
@@ -94,11 +97,11 @@
     CREATE TABLE codigoDesc(
         cveDescuento VARCHAR (10) NOT NULL,
         descripcion VARCHAR (120),
-        descuento integer,
+        descuento int,
         CONSTRAINT codigoDescPk PRIMARY KEY (cveDescuento)
     );
     CREATE TABLE mide(
-        cveUsuario integer NOT null,
+        cveUsuario int NOT null,
         cveTallas VARCHAR(10),
         CONSTRAINT mideFk1 FOREIGN KEY (cveUsuario) REFERENCES usuario(cveUsuario),
         CONSTRAINT mideFk2 FOREIGN KEY (cveTallas) REFERENCES tallas (cveTallas)
@@ -136,19 +139,19 @@
         CONSTRAINT prendasFk9 FOREIGN KEY (cveZapato) REFERENCES zapatos (cveZapato)
     );
     CREATE TABLE carrito(
-        cveCarrito integer NOT NULL,
-        subtotal integer,
+        cveCarrito int NOT NULL,
+        subtotal int,
         CONSTRAINT carritoPk PRIMARY KEY (cveCarrito)
     );
     CREATE TABLE compro (
-        cveCarrito integer not NULL,
+        cveCarrito int not NULL,
         cveProducto VARCHAR (10),
         CONSTRAINT comproFk1 FOREIGN KEY (cveCarrito) REFERENCES carrito (cveCarrito),
         CONSTRAINT comproFk2 FOREIGN KEY (cveProducto) REFERENCES producto (cveProducto)
     );
     CREATE TABLE subtotal (
-        cveUsuario integer NOT NULL,
-        cveCarrito integer,
+        cveUsuario int NOT NULL,
+        cveCarrito int,
         CONSTRAINT subtotalFk1 FOREIGN KEY (cveUsuario) REFERENCES usuario (cveUsuario),
         CONSTRAINT subtotalFk2 FOREIGN KEY (cveCarrito) REFERENCES carrito (cveCarrito)
     );
@@ -164,22 +167,22 @@
         direccion VARCHAR (120),
         referencia VARCHAR (60),
         cveCiudad VARCHAR (10),
-        cveUsuario integer,
+        cveUsuario int,
         CONSTRAINT direccionPk PRIMARY KEY (cveDireccion),
         CONSTRAINT direccionFk1 FOREIGN KEY (cveCiudad) REFERENCES ciudad (cveCiudad),
         CONSTRAINT direccionFk2 FOREIGN KEY (cveUsuario) REFERENCES usuario (cveUsuario)
     );
     CREATE TABLE cargo(
         cveCargo VARCHAR (10) not null,
-        cargo integer,
+        cargo int,
         cveCiudad VARCHAR (10),
 		CONSTRAINT cveCargoPk PRIMARY KEY (cveCargo),
         CONSTRAINT cargoFk FOREIGN KEY (cveCiudad) REFERENCES ciudad (cveCiudad)
     );
     CREATE TABLE compra (
         cveCompra VARCHAR (10) NOT NULL,
-        total numeric (10,2), 
-        subtotal numeric (10,2),
+        total int, 
+        subtotal int,
         fechaEntrega VARCHAR (10),
         cveCargo VARCHAR (10),
         cveDescuento VARCHAR (10),
